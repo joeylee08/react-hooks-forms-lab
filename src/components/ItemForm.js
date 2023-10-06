@@ -1,17 +1,17 @@
 import React from "react";
-import { v4 as uuid } from "uuid";
+// import { v4 as uuid } from "uuid";
 
-function ItemForm(props) {
+function ItemForm({addNewItem, handleFormChange, name, category}) {
   return (
-    <form className="NewItem">
+    <form onSubmit={addNewItem} className="NewItem">
       <label>
         Name:
-        <input type="text" name="name" />
+        <input value={name} onChange={handleFormChange} type="text" name="name" />
       </label>
 
       <label>
         Category:
-        <select name="category">
+        <select name="category" onChange={handleFormChange} value={category}>
           <option value="Produce">Produce</option>
           <option value="Dairy">Dairy</option>
           <option value="Dessert">Dessert</option>
